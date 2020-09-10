@@ -1,0 +1,27 @@
+.box {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+}
+.box > div{
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #eeeff2;
+    margin: 10px;
+    padding: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.15);
+    transition: width 1s, height 1s, transform 1s, background-color 1s;
+}
+div :hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 20px 20px rgba(0,0,0,0.3);
+    transform: rotate(360deg);
+}
