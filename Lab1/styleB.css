@@ -1,0 +1,26 @@
+.box {
+    display: flex;
+    align-items: center;
+}
+.box > div{
+    width: 100px;
+    height: 150px;
+    border-left: dotted 10px;
+    border-color: #D0D0FF;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #eeeff2;
+    margin: 10px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+div :last-child{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+div :hover{
+    background-color: yellow;
+    cursor: pointer;
+    color: goldenrod;
+}
