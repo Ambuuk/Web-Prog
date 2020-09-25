@@ -1,10 +1,13 @@
 'use strict';
+
+var cs142MakeMultiFilter;
+(function(){
 /*
  * This file tests the CS142 Project #2 JavaScript assignment problems. It prints what
  * it finds to the console log and updates the text being displayed in the window with a
  * summary of the results.
  */
-var cs142MakeMultiFilter;
+
 // We assume these symbols will be globally defined by the user. These var statements
 // will assign undefined to the symbol if it isn't global already.
 // These global symbols are needed to test your file and you don't have to worry about them for Problem 3.
@@ -112,7 +115,6 @@ if (typeof cs142MakeMultiFilter !== 'function') {
 console.log('Test cs142MakeMultiFilter:', p1Message);
 
 // ********************* Test Cs142TemplateProcessor
-
 if (typeof Cs142TemplateProcessor !== 'function') {
     console.error('Cs142TemplateProcessor is not a function', Cs142TemplateProcessor);
     p2Message = 'FAILURE';
@@ -161,3 +163,4 @@ window.onload = function () {
     document.getElementById("cs142p2").innerHTML = p2Message;
     document.getElementById("cs142p3").innerHTML = p3Message;
 };
+}());
