@@ -1,0 +1,28 @@
+
+td#OtherMonth {
+     color:gray; 
+}
+
+td#CurMonth {
+    color:white;
+    cursor: pointer;
+}
+@keyframes mymove {
+    from {font-size: 10px;}
+    to {font-size: 25px;}
+  }
+td#CurMonth:active{
+    color: blue;
+    font-size: 20px;
+}
+#LeftArrow, #RightArrow{
+    cursor: pointer;
+}
+
+table, th, td {
+    border: 10px solid black;
+    color: white;
+    text-align: center;
+    background:black;    
+    cursor: default;
+}
