@@ -1,75 +1,53 @@
 import React from 'react';
 import './Example.css';
-
-/*
-  Since this component shows code we include the https://prismjs.com/
-  formatter. We invoke it by labelling code blocks with class="language-jsx"
-*/
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.js';
 import '../../node_modules/prismjs/themes/prism.css';
 
-/* eslint-disable  react/jsx-one-expression-per-line */
-/* eslint-disable  react/destructuring-assignment */
-/* eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }] */
 
-// React Components are subclass of React.Componment.
+
+
 class Example extends React.Component {
   constructor(props) {
-    super(props); // Must run the constructor of React.Component first
-
-    // Components have a special property named "state" that holds state.
-    // We can initialize it here.
-    // We read the example model data into the state variable 'name'
+    super(props); 
     this.state = {
-      name: "Ambuuk",
+      name: window.cs142models.exampleModel().name,
+      counter: 0,
       inputValue: '',
       buttonWasClicked: '',
+      //motto: window.cs142models.exampleModel().motto,
+      inputMotto: window.cs142models.exampleModel().motto,
     };
 
-    // React events are called directly from DOM event handlers
-    // so we cannot directly call the methods of this class. We
-    // generate new functions that handle the event by just calling
-    // the method that handles the event.
     this.handleChangeBound = event => this.handleChange(event);
-    // Note: A commmon idiom in React code is to use JavaScript bind() to
-    // smash the method to accomplish this passthrough to the method:
-    //      this.handleChange = this.handleChange.bind(this);
+
+    this.handleChangeBoundMotto = event => this.handleChangeMotto(event);
   }
 
-  // React components have several "lifecycle functions"
-  // https://reactjs.org/docs/react-component.html
-  // that are used to inform the Component of interesting events.
 
-  // componentDidMount - Called when Component is activiated
   componentDidMount() {
-    // To demonstate state updating we define a function
-    // that increments the counter state and instruct the
-    // DOM to call it every 2 seconds.
-    /* eslint-disable react/no-access-state-in-setstate */
+
     const counterIncrFunc = () => this.setState({
       counter: this.state.counter + 1,
     });
     this.timerID = setInterval(counterIncrFunc, 2 * 1000);
 
-    // Trigger the code coloring
     Prism.highlightAll();
   }
 
-  // componentWillUnmount - Called when Component is deactivated.
+
   componentWillUnmount() {
-    // We need to tell the DOM to stop calling us otherwise React
-    // will complain when we call setState on an unmounted component.
     clearInterval(this.timerID);
   }
 
-  // Method called when the input box is typed into.
   handleChange(event) {
     this.setState({ inputValue: event.target.value });
   }
 
-  // Method called when the button is pushed
-  /* eslint-disable-next-line no-unused-vars */
+  handleChangeMotto(event) {
+    this.setState({ inputMotto: event.target.value });
+  }
+
   handleButtonClick(buttonName, event) {
     this.setState({ buttonWasClicked: buttonName });
   }
@@ -102,7 +80,12 @@ class Example extends React.Component {
         <h1>CS142 Project#4 React.js Example</h1>
 
         <div className="motto-update">
-          {this.state.name} : Where you are is the only place where you need to be.
+            <p className="mottop">
+             { this.state.inputMotto}
+            </p>
+
+             <label htmlFor="inId1">Change motto: </label>
+            <input id="inId1" type="text"  value={this.state.inputMotto} onChange={this.handleChangeBoundMotto} />
         </div>
 
         <p>
@@ -163,7 +146,7 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`<p>My name is "{this.state.name}".</p>`
+              `<p>My name is "{this.state.name}".</p>`
             }
           </code>
         </pre>

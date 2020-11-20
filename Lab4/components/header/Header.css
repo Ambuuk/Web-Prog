@@ -1,0 +1,12 @@
+#img
+{
+    height:400px;
+    padding-bottom: 10px;
+}
+
+#headerback
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

@@ -1,6 +1,35 @@
 /*
 CSS for the CS142 project #4 Problem #2 states component
-
 Since CSS uses a global name space for classes we should use names starting with
 cs142-states- here.
 */
+body{
+	background: rgb(244,244,244)
+}
+.cs142-example-output-states {    
+    display: flex;
+    color: black;
+    justify-content: center;
+    
+       
+}
+.ulneg{
+    display: flex;
+    flex-direction: column;
+    column-count: 4;
+    padding-top: 5px;
+    color: white;
+}
+.cs142-example
+{
+    column-count: 3;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+}
+.lineg{
+    padding: 5px;
+    background-color: black;
+    color: white;
+    margin: 5px;
+}

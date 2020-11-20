@@ -1,6 +1,7 @@
 import React from 'react';
 import './States.css';
 
+
 /**
  * Define States, a React componment of CS142 project #4 problem #2.  The model
  * data for this view (the state names) is available
@@ -9,13 +10,58 @@ import './States.css';
 class States extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      inputvalues: '',
+    };
     console.log('window.cs142models.statesModel()', window.cs142models.statesModel());
+
+    this.handleChangeBound = event => this.handleChange(event);
+  
+  };
+
+  handleChange(event) {
+    this.setState({inputvalues: event.target.value });
+  }
+
+  outOfBandJSX(option) {
+    var listItems = [] = window.cs142models.statesModel();
+    listItems.sort();
+    var X=0;
+    var listOfStates = [];
+    if(this.state.inputvalues === ""){
+      for(var i=0; i<50; i++){
+         listOfStates[i] = <li key={i} class="lineg">{listItems[i]} </li> 
+    }}else{ 
+    for(var i=0; i<50; i++){
+      if(listItems[i].toLowerCase().includes(this.state.inputvalues.toLowerCase())){
+          listOfStates[i] = <li key={i} class="lineg">{listItems[i]} </li> 
+          X++;
+        }
+      }
+    }
+
+  if(X==0)
+    listOfStates[1]= <li key={1} class="lineg"> {"Baihgui"} </li>
+    var retVal =
+      <div className="retval">
+        <ul class="ulneg">
+          {listOfStates}
+        </ul>
+      </div>;
+  
+    return retVal;
   }
 
   render() {
     return (
       <div>
-        Replace this with the code for CS142 Project #4, Problem #2
+      <div className="cs142-example-output-states">
+          <label htmlFor="inId">States:
+          </label>
+          <input id="InpId" type="text" value={this.state.inputvalues} onChange={this.handleChangeBound} />
+
+        </div>
+         <div className="cs142-example">{this.outOfBandJSX(true)}</div>
       </div>
     );
   }
