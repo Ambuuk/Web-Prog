@@ -1,0 +1,1 @@
+mongodb+srv://ambuuk:<password>@web-programming.zuamn.mongodb.net/<dbname>?retryWrites=true&w=majority
