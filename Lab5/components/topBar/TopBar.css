@@ -1,0 +1,11 @@
+.cs142-topbar-appBar {
+  height: 60;
+  justify-content: 'center';
+}
+.toolbar-left{
+
+}
+.toolbar-right{
+  margin-left: 70%;
+  vertical-align: "middle";
+}
